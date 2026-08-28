@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
-import { Project, projects, shotUrl } from "@/lib/projects";
+import { Project, projects } from "@/lib/projects";
 import FadeIn from "./FadeIn";
 import LiveProjectButton from "./LiveProjectButton";
 
@@ -52,7 +52,7 @@ function ProjectCard({
 
         <div className="w-full overflow-hidden rounded-[30px] sm:rounded-[40px] md:rounded-[50px] border border-[#D2FFE4]/20">
           <img
-            src={shotUrl(project.url)}
+            src={project.shot}
             alt={project.name}
             loading="lazy"
             className="w-full object-cover object-top"
