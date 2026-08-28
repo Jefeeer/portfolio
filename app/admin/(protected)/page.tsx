@@ -30,14 +30,14 @@ export default async function AdminDashboard() {
   const last24 = messages.filter((m) => m.createdAt >= dayAgo).length;
 
   return (
-    <main className="min-h-screen bg-[#0C0C0C] text-[#D7E2EA] px-5 sm:px-8 md:px-10 py-10">
+    <main className="min-h-screen bg-[#0C0C0C] text-[#D2FFE4] px-5 sm:px-8 md:px-10 py-10">
       <div className="max-w-5xl mx-auto">
         <header className="flex items-center justify-between gap-4 mb-10">
           <div>
             <h1 className="hero-heading font-black uppercase leading-none tracking-tight text-4xl sm:text-5xl">
               Dashboard
             </h1>
-            <p className="text-[#646973] uppercase tracking-widest text-xs mt-2">
+            <p className="text-[#5E8A73] uppercase tracking-widest text-xs mt-2">
               Contact messages
             </p>
           </div>
@@ -66,26 +66,26 @@ export default async function AdminDashboard() {
         </div>
 
         {messages.length === 0 ? (
-          <p className="text-[#646973] text-center py-20">No messages yet.</p>
+          <p className="text-[#5E8A73] text-center py-20">No messages yet.</p>
         ) : (
           <ul className="flex flex-col gap-4">
             {messages.map((m) => (
               <li
                 key={m.id}
-                className="rounded-2xl border border-[#D7E2EA]/15 bg-white/[0.03] p-5"
+                className="rounded-2xl border border-[#D2FFE4]/15 bg-white/[0.03] p-5"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <p className="font-medium">{m.name}</p>
                     <a
                       href={`mailto:${m.email}`}
-                      className="text-[#646973] text-sm hover:text-[#D7E2EA] inline-flex items-center gap-1 transition-colors"
+                      className="text-[#5E8A73] text-sm hover:text-[#D2FFE4] inline-flex items-center gap-1 transition-colors"
                     >
                       <Mail size={13} /> {m.email}
                     </a>
                   </div>
                   <div className="flex items-center gap-4 shrink-0">
-                    <time className="text-[#646973] text-xs">
+                    <time className="text-[#5E8A73] text-xs">
                       {m.createdAt.toLocaleString()}
                     </time>
                     {!demo && (
@@ -98,7 +98,7 @@ export default async function AdminDashboard() {
                     )}
                   </div>
                 </div>
-                <p className="mt-3 text-[#D7E2EA]/80 leading-relaxed whitespace-pre-wrap">
+                <p className="mt-3 text-[#D2FFE4]/80 leading-relaxed whitespace-pre-wrap">
                   {m.message}
                 </p>
               </li>
@@ -120,8 +120,8 @@ function Stat({
   value: number;
 }) {
   return (
-    <div className="rounded-2xl border border-[#D7E2EA]/15 bg-white/[0.03] p-5">
-      <div className="flex items-center gap-2 text-[#646973] uppercase tracking-widest text-xs">
+    <div className="rounded-2xl border border-[#D2FFE4]/15 bg-white/[0.03] p-5">
+      <div className="flex items-center gap-2 text-[#5E8A73] uppercase tracking-widest text-xs">
         {icon}
         {label}
       </div>

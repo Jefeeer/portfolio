@@ -7,7 +7,7 @@ import FadeIn from "./FadeIn";
 type Status = "idle" | "submitting" | "success" | "error";
 
 const inputClass =
-  "w-full rounded-2xl bg-white/5 border border-[#D7E2EA]/20 text-[#D7E2EA] placeholder:text-[#646973] px-5 py-4 outline-none focus:border-[#D7E2EA]/60 transition-colors";
+  "w-full rounded-2xl bg-white/5 border border-[#D2FFE4]/20 text-[#D2FFE4] placeholder:text-[#5E8A73] px-5 py-4 outline-none focus:border-[#D2FFE4]/60 transition-colors";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -88,9 +88,9 @@ export default function Contact() {
               className="inline-flex items-center justify-center gap-2 rounded-full text-white font-medium uppercase tracking-widest px-10 py-4 text-sm md:text-base transition-transform duration-200 hover:scale-[1.02] disabled:opacity-60 disabled:hover:scale-100"
               style={{
                 background:
-                  "linear-gradient(123deg, #18011F 7%, #B600A8 37%, #7621B0 72%, #BE4C00 100%)",
+                  "linear-gradient(123deg, #04140b 7%, #0c7a42 37%, #14b85f 72%, #22ff88 100%)",
                 boxShadow:
-                  "0px 4px 4px rgba(181, 1, 167, 0.25), 4px 4px 12px #7721B1 inset",
+                  "0px 4px 4px rgba(34, 255, 136, 0.25), 4px 4px 12px #0c7a42 inset",
                 outline: "2px solid #FFFFFF",
                 outlineOffset: "-3px",
               }}
@@ -112,7 +112,7 @@ export default function Contact() {
               <p className="text-red-400 text-sm text-center">{error}</p>
             )}
             {status === "success" && (
-              <p className="text-[#D7E2EA] text-sm text-center">
+              <p className="text-[#D2FFE4] text-sm text-center">
                 Thanks — I&apos;ll get back to you soon.
               </p>
             )}
@@ -121,7 +121,7 @@ export default function Contact() {
 
         <a
           href="mailto:mj.manalo@resoluteaiph.com"
-          className="inline-flex items-center gap-2 text-[#646973] hover:text-[#D7E2EA] transition-colors uppercase tracking-widest text-xs sm:text-sm"
+          className="inline-flex items-center gap-2 text-[#5E8A73] hover:text-[#D2FFE4] transition-colors uppercase tracking-widest text-xs sm:text-sm"
         >
           <Mail size={16} /> mj.manalo@resoluteaiph.com
         </a>

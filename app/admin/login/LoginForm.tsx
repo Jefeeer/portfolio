@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { Lock } from "lucide-react";
 
 const inputClass =
-  "w-full rounded-2xl bg-white/5 border border-[#D7E2EA]/20 text-[#D7E2EA] placeholder:text-[#646973] px-5 py-4 outline-none focus:border-[#D7E2EA]/60 transition-colors";
+  "w-full rounded-2xl bg-white/5 border border-[#D2FFE4]/20 text-[#D2FFE4] placeholder:text-[#5E8A73] px-5 py-4 outline-none focus:border-[#D2FFE4]/60 transition-colors";
 
 export default function LoginForm({
   demo,
@@ -48,26 +48,26 @@ export default function LoginForm({
     <main className="min-h-screen bg-[#0C0C0C] flex items-center justify-center px-5">
       <div className="w-full max-w-sm">
         <div className="flex flex-col items-center gap-3 mb-8">
-          <div className="rounded-full border border-[#D7E2EA]/20 p-4 text-[#D7E2EA]">
+          <div className="rounded-full border border-[#D2FFE4]/20 p-4 text-[#D2FFE4]">
             <Lock size={22} />
           </div>
           <h1 className="hero-heading font-black uppercase tracking-tight text-3xl">
             Admin
           </h1>
-          <p className="text-[#646973] uppercase tracking-widest text-xs">
+          <p className="text-[#5E8A73] uppercase tracking-widest text-xs">
             Restricted access
           </p>
         </div>
 
         {demo && (
-          <div className="mb-6 rounded-2xl border border-[#D7E2EA]/15 bg-white/[0.03] px-5 py-4 text-sm">
-            <p className="text-[#D7E2EA] font-medium uppercase tracking-widest text-xs mb-2">
+          <div className="mb-6 rounded-2xl border border-[#D2FFE4]/15 bg-white/[0.03] px-5 py-4 text-sm">
+            <p className="text-[#D2FFE4] font-medium uppercase tracking-widest text-xs mb-2">
               Demo mode
             </p>
-            <p className="text-[#646973] leading-relaxed">
-              Email <span className="text-[#D7E2EA]">{demoEmail}</span>
+            <p className="text-[#5E8A73] leading-relaxed">
+              Email <span className="text-[#D2FFE4]">{demoEmail}</span>
               <br />
-              Password <span className="text-[#D7E2EA]">{demoPassword}</span>
+              Password <span className="text-[#D2FFE4]">{demoPassword}</span>
             </p>
             <button
               type="button"
@@ -75,7 +75,7 @@ export default function LoginForm({
                 setEmail(demoEmail);
                 setPassword(demoPassword);
               }}
-              className="mt-3 text-[#D7E2EA] underline underline-offset-4 hover:opacity-70 transition-opacity text-xs uppercase tracking-widest"
+              className="mt-3 text-[#D2FFE4] underline underline-offset-4 hover:opacity-70 transition-opacity text-xs uppercase tracking-widest"
             >
               Fill demo credentials
             </button>
@@ -107,9 +107,9 @@ export default function LoginForm({
             className="rounded-full text-white font-medium uppercase tracking-widest px-10 py-4 text-sm transition-transform duration-200 hover:scale-[1.02] disabled:opacity-60 disabled:hover:scale-100"
             style={{
               background:
-                "linear-gradient(123deg, #18011F 7%, #B600A8 37%, #7621B0 72%, #BE4C00 100%)",
+                "linear-gradient(123deg, #04140b 7%, #0c7a42 37%, #14b85f 72%, #22ff88 100%)",
               boxShadow:
-                "0px 4px 4px rgba(181, 1, 167, 0.25), 4px 4px 12px #7721B1 inset",
+                "0px 4px 4px rgba(34, 255, 136, 0.25), 4px 4px 12px #0c7a42 inset",
               outline: "2px solid #FFFFFF",
               outlineOffset: "-3px",
             }}

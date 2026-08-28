@@ -36,7 +36,7 @@ const ROW2 = TECH.slice(7);
 
 function Tile({ tech }: { tech: Tech }) {
   return (
-    <div className="flex flex-col items-center justify-center gap-4 flex-shrink-0 rounded-2xl border border-[#D7E2EA]/15 bg-white/[0.03] w-[200px] h-[130px]">
+    <div className="flex flex-col items-center justify-center gap-4 flex-shrink-0 rounded-2xl border border-[#D2FFE4]/15 bg-white/[0.03] w-[200px] h-[130px]">
       {tech.slug ? (
         <img
           src={logo(tech.slug, tech.color)}
@@ -45,9 +45,9 @@ function Tile({ tech }: { tech: Tech }) {
           className="h-12 w-12 object-contain"
         />
       ) : (
-        <Code2 className="h-12 w-12 text-[#D7E2EA]" strokeWidth={1.5} />
+        <Code2 className="h-12 w-12 text-[#D2FFE4]" strokeWidth={1.5} />
       )}
-      <span className="text-[#D7E2EA] font-light uppercase tracking-widest text-xs">
+      <span className="text-[#D2FFE4] font-light uppercase tracking-widest text-xs">
         {tech.name}
       </span>
     </div>

@@ -17,7 +17,7 @@ export default function Navbar() {
           <li key={l.href}>
             <a
               href={l.href}
-              className="text-[#D7E2EA] font-medium uppercase tracking-wider text-sm md:text-lg lg:text-[1.4rem] transition-opacity duration-200 hover:opacity-70"
+              className="text-[#D2FFE4] font-medium uppercase tracking-wider text-sm md:text-lg lg:text-[1.4rem] transition-opacity duration-200 hover:opacity-70"
             >
               {l.label}
             </a>

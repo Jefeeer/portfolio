@@ -29,7 +29,7 @@ export default function About() {
         x={-80}
         y={0}
         duration={0.9}
-        className="absolute top-[4%] left-[1%] sm:left-[2%] md:left-[4%] text-[#646973]"
+        className="absolute top-[4%] left-[1%] sm:left-[2%] md:left-[4%] text-[#5E8A73]"
       >
         <Terminal className="w-[80px] sm:w-[110px] md:w-[150px] h-auto" strokeWidth={1} />
       </FadeIn>
@@ -38,7 +38,7 @@ export default function About() {
         x={80}
         y={0}
         duration={0.9}
-        className="absolute top-[4%] right-[1%] sm:right-[2%] md:right-[4%] text-[#646973]"
+        className="absolute top-[4%] right-[1%] sm:right-[2%] md:right-[4%] text-[#5E8A73]"
       >
         <Braces className="w-[80px] sm:w-[110px] md:w-[150px] h-auto" strokeWidth={1} />
       </FadeIn>
@@ -47,7 +47,7 @@ export default function About() {
         x={-80}
         y={0}
         duration={0.9}
-        className="absolute bottom-[8%] left-[3%] sm:left-[6%] md:left-[10%] text-[#646973]"
+        className="absolute bottom-[8%] left-[3%] sm:left-[6%] md:left-[10%] text-[#5E8A73]"
       >
         <Database className="w-[70px] sm:w-[100px] md:w-[130px] h-auto" strokeWidth={1} />
       </FadeIn>
@@ -56,7 +56,7 @@ export default function About() {
         x={80}
         y={0}
         duration={0.9}
-        className="absolute bottom-[8%] right-[3%] sm:right-[6%] md:right-[10%] text-[#646973]"
+        className="absolute bottom-[8%] right-[3%] sm:right-[6%] md:right-[10%] text-[#5E8A73]"
       >
         <Server className="w-[70px] sm:w-[100px] md:w-[130px] h-auto" strokeWidth={1} />
       </FadeIn>
@@ -75,7 +75,7 @@ export default function About() {
         <div className="flex flex-col items-center gap-16 sm:gap-20 md:gap-24">
           <AnimatedText
             text={BIO}
-            className="text-[#D7E2EA] font-medium text-center leading-relaxed max-w-[560px]"
+            className="text-[#D2FFE4] font-medium text-center leading-relaxed max-w-[560px]"
             style={{ fontSize: "clamp(1rem, 2vw, 1.35rem)" }}
           />
 
@@ -85,7 +85,7 @@ export default function About() {
           >
             {STACK.map((t, i) => (
               <FadeIn key={t} delay={i * 0.08} y={20}>
-                <span className="rounded-full border border-[#D7E2EA]/30 text-[#D7E2EA] uppercase tracking-widest font-light px-5 py-2 text-xs sm:text-sm">
+                <span className="rounded-full border border-[#D2FFE4]/30 text-[#D2FFE4] uppercase tracking-widest font-light px-5 py-2 text-xs sm:text-sm">
                   {t}
                 </span>
               </FadeIn>
