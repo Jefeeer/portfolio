@@ -42,8 +42,8 @@ function NavItem({
       <div
         className={`group flex items-center justify-between px-2.5 py-[7px] rounded-md cursor-pointer transition-all duration-200 select-none ${
           isActive
-            ? "bg-primary/10 text-primary font-medium"
-            : "text-muted-foreground hover:bg-white/5 hover:text-foreground/90"
+            ? "bg-accent text-accent-foreground font-medium"
+            : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
         }`}
         style={{ paddingLeft: `${level * 12 + 10}px` }}
         onClick={handleClick}
@@ -52,8 +52,8 @@ function NavItem({
           <item.icon
             className={`w-4 h-4 transition-colors ${
               isActive
-                ? "text-primary"
-                : "text-muted-foreground/70 group-hover:text-foreground/70"
+                ? "text-accent-foreground"
+                : "text-muted-foreground/70 group-hover:text-accent-foreground"
             }`}
             strokeWidth={1.5}
           />
@@ -64,12 +64,12 @@ function NavItem({
 
         <div className="flex items-center gap-2">
           {item.shortcut && (
-            <kbd className="hidden group-hover:inline-flex items-center justify-center h-5 px-1.5 text-[10px] font-mono text-muted-foreground/60 bg-white/5 border border-border/50 rounded">
+            <kbd className="hidden group-hover:inline-flex items-center justify-center h-5 px-1.5 text-[10px] font-mono text-muted-foreground/60 bg-muted border border-border/50 rounded">
               {item.shortcut}
             </kbd>
           )}
           {item.badge != null && (
-            <span className="flex items-center justify-center min-w-[20px] h-5 px-1.5 text-[10px] font-medium rounded-full bg-primary/15 text-primary">
+            <span className="flex items-center justify-center min-w-[20px] h-5 px-1.5 text-[10px] font-medium rounded-full bg-secondary text-secondary-foreground">
               {item.badge}
             </span>
           )}

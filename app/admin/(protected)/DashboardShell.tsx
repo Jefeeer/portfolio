@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   Activity,
@@ -10,8 +10,10 @@ import {
   LayoutDashboard,
   LogOut,
   Mail,
+  Moon,
   PanelLeftClose,
   PanelLeftOpen,
+  Sun,
   Users,
 } from "lucide-react";
 import {
@@ -39,6 +41,16 @@ export default function DashboardShell({
   const router = useRouter();
   const [activeId, setActiveId] = useState("overview");
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+
+  useEffect(() => {
+    const saved = localStorage.getItem("admin-theme");
+    if (saved === "dark" || saved === "light") setTheme(saved);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("admin-theme", theme);
+  }, [theme]);
 
   const now = Date.now();
   const dayAgo = now - 24 * 3600 * 1000;
@@ -88,7 +100,9 @@ export default function DashboardShell({
       : "Overview";
 
   return (
-    <div className="dark flex h-screen bg-background text-foreground overflow-hidden">
+    <div
+      className={`${theme === "dark" ? "dark" : ""} flex h-screen bg-background text-foreground overflow-hidden`}
+    >
       <div
         className={`h-full transition-all duration-300 ease-in-out shrink-0 overflow-hidden ${
           sidebarOpen ? "w-[260px]" : "w-0"
@@ -109,7 +123,7 @@ export default function DashboardShell({
           <div className="flex items-center gap-3">
             <button
               onClick={() => setSidebarOpen((o) => !o)}
-              className="p-1.5 rounded-md text-muted-foreground hover:bg-white/5 hover:text-foreground transition-colors"
+              className="p-1.5 rounded-md text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
               aria-label="Toggle sidebar"
             >
               {sidebarOpen ? (
@@ -124,11 +138,24 @@ export default function DashboardShell({
               <span className="font-medium text-foreground">{title}</span>
             </div>
           </div>
-          {demo && (
-            <span className="text-[11px] uppercase tracking-widest text-yellow-300/80 border border-yellow-500/30 rounded-full px-3 py-1">
-              Demo data
-            </span>
-          )}
+          <div className="flex items-center gap-3">
+            {demo && (
+              <span className="text-[11px] uppercase tracking-widest text-yellow-600 dark:text-yellow-300/80 border border-yellow-500/30 rounded-full px-3 py-1">
+                Demo data
+              </span>
+            )}
+            <button
+              onClick={() => setTheme((t) => (t === "dark" ? "light" : "dark"))}
+              className="p-1.5 rounded-md text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+              aria-label="Toggle theme"
+            >
+              {theme === "dark" ? (
+                <Sun className="w-[18px] h-[18px]" strokeWidth={1.5} />
+              ) : (
+                <Moon className="w-[18px] h-[18px]" strokeWidth={1.5} />
+              )}
+            </button>
+          </div>
         </header>
 
         <div className="flex-1 overflow-y-auto p-6 md:p-8">
