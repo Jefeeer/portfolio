@@ -1,43 +1,54 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { Code2 } from "lucide-react";
 
-const IMAGES = [
-  "https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif",
-  "https://motionsites.ai/assets/hero-codenest-preview-Cgppc2qV.gif",
-  "https://motionsites.ai/assets/hero-vex-ventures-preview-BczMFIiw.gif",
-  "https://motionsites.ai/assets/hero-stellar-ai-v2-preview-DjvxjG3C.gif",
-  "https://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif",
-  "https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif",
-  "https://motionsites.ai/assets/hero-vitara-preview-Cjz2QYyU.gif",
-  "https://motionsites.ai/assets/hero-terra-preview-BFjrCr7T.gif",
-  "https://motionsites.ai/assets/hero-skyelite-preview-DHaZIgUv.gif",
-  "https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif",
-  "https://motionsites.ai/assets/hero-designpro-preview-D8c5_een.gif",
-  "https://motionsites.ai/assets/hero-stellar-ai-preview-D3HL6bw1.gif",
-  "https://motionsites.ai/assets/hero-xportfolio-preview-D4A8maiC.gif",
-  "https://motionsites.ai/assets/hero-orbit-web3-preview-BXt4OttD.gif",
-  "https://motionsites.ai/assets/hero-nexora-preview-cx5HmUgo.gif",
-  "https://motionsites.ai/assets/hero-evr-ventures-preview-DZxeVFEX.gif",
-  "https://motionsites.ai/assets/hero-planet-orbit-preview-DWAP8Z1P.gif",
-  "https://motionsites.ai/assets/hero-new-era-preview-CocuDUm9.gif",
-  "https://motionsites.ai/assets/hero-wealth-preview-B70idl_u.gif",
-  "https://motionsites.ai/assets/hero-luminex-preview-CxOP7ce6.gif",
-  "https://motionsites.ai/assets/hero-celestia-preview-0yO3jXO8.gif",
+interface Tech {
+  name: string;
+  slug?: string; // Simple Icons slug; omit for Lucide fallback
+}
+
+// Tinted to the site's light accent for a consistent monochrome band.
+const TINT = "D7E2EA";
+const logo = (slug: string) => `https://cdn.simpleicons.org/${slug}/${TINT}`;
+
+const TECH: Tech[] = [
+  { name: "Next.js", slug: "nextdotjs" },
+  { name: "React", slug: "react" },
+  { name: "Node.js", slug: "nodedotjs" },
+  { name: "TypeScript", slug: "typescript" },
+  { name: "Tailwind CSS", slug: "tailwindcss" },
+  { name: "Supabase", slug: "supabase" },
+  { name: "PostgreSQL", slug: "postgresql" },
+  { name: "MySQL", slug: "mysql" },
+  { name: "Prisma", slug: "prisma" },
+  { name: "Vercel", slug: "vercel" },
+  { name: "GitHub", slug: "github" },
+  { name: "Claude AI", slug: "claude" },
+  { name: "Cursor", slug: "cursor" },
+  { name: "Codex" }, // no Simple Icons logo — Lucide fallback
 ];
 
-const ROW1 = IMAGES.slice(0, 11);
-const ROW2 = IMAGES.slice(11);
+const ROW1 = TECH.slice(0, 7);
+const ROW2 = TECH.slice(7);
 
-function Tile({ src }: { src: string }) {
+function Tile({ tech }: { tech: Tech }) {
   return (
-    <img
-      src={src}
-      alt=""
-      loading="lazy"
-      className="rounded-2xl object-cover flex-shrink-0"
-      style={{ width: 420, height: 270 }}
-    />
+    <div className="flex flex-col items-center justify-center gap-4 flex-shrink-0 rounded-2xl border border-[#D7E2EA]/15 bg-white/[0.03] w-[200px] h-[130px]">
+      {tech.slug ? (
+        <img
+          src={logo(tech.slug)}
+          alt={tech.name}
+          loading="lazy"
+          className="h-12 w-12 object-contain"
+        />
+      ) : (
+        <Code2 className="h-12 w-12 text-[#D7E2EA]" strokeWidth={1.5} />
+      )}
+      <span className="text-[#D7E2EA] font-light uppercase tracking-widest text-xs">
+        {tech.name}
+      </span>
+    </div>
   );
 }
 
@@ -73,8 +84,8 @@ export default function Marquee() {
             willChange: "transform",
           }}
         >
-          {row1.map((src, i) => (
-            <Tile key={`r1-${i}`} src={src} />
+          {row1.map((t, i) => (
+            <Tile key={`r1-${i}`} tech={t} />
           ))}
         </div>
         <div
@@ -84,8 +95,8 @@ export default function Marquee() {
             willChange: "transform",
           }}
         >
-          {row2.map((src, i) => (
-            <Tile key={`r2-${i}`} src={src} />
+          {row2.map((t, i) => (
+            <Tile key={`r2-${i}`} tech={t} />
           ))}
         </div>
       </div>
