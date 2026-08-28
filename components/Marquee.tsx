@@ -6,14 +6,16 @@ import { Code2 } from "lucide-react";
 interface Tech {
   name: string;
   slug?: string; // Simple Icons slug; omit for Lucide fallback
+  color?: string; // override brand color (used for near-black logos on dark bg)
 }
 
-// Tinted to the site's light accent for a consistent monochrome band.
-const TINT = "D7E2EA";
-const logo = (slug: string) => `https://cdn.simpleicons.org/${slug}/${TINT}`;
+// Full brand color by default; `color` overrides only where the brand mark is
+// near-black and would vanish on #0C0C0C.
+const logo = (slug: string, color?: string) =>
+  `https://cdn.simpleicons.org/${slug}${color ? `/${color}` : ""}`;
 
 const TECH: Tech[] = [
-  { name: "Next.js", slug: "nextdotjs" },
+  { name: "Next.js", slug: "nextdotjs", color: "white" },
   { name: "React", slug: "react" },
   { name: "Node.js", slug: "nodedotjs" },
   { name: "TypeScript", slug: "typescript" },
@@ -21,11 +23,11 @@ const TECH: Tech[] = [
   { name: "Supabase", slug: "supabase" },
   { name: "PostgreSQL", slug: "postgresql" },
   { name: "MySQL", slug: "mysql" },
-  { name: "Prisma", slug: "prisma" },
-  { name: "Vercel", slug: "vercel" },
-  { name: "GitHub", slug: "github" },
+  { name: "Prisma", slug: "prisma", color: "white" },
+  { name: "Vercel", slug: "vercel", color: "white" },
+  { name: "GitHub", slug: "github", color: "white" },
   { name: "Claude AI", slug: "claude" },
-  { name: "Cursor", slug: "cursor" },
+  { name: "Cursor", slug: "cursor", color: "white" },
   { name: "Codex" }, // no Simple Icons logo — Lucide fallback
 ];
 
@@ -37,7 +39,7 @@ function Tile({ tech }: { tech: Tech }) {
     <div className="flex flex-col items-center justify-center gap-4 flex-shrink-0 rounded-2xl border border-[#D7E2EA]/15 bg-white/[0.03] w-[200px] h-[130px]">
       {tech.slug ? (
         <img
-          src={logo(tech.slug)}
+          src={logo(tech.slug, tech.color)}
           alt={tech.name}
           loading="lazy"
           className="h-12 w-12 object-contain"
