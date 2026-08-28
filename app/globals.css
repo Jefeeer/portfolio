@@ -2,6 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+/* shadcn design tokens — dark theme with neon-green primary (admin dashboard) */
+:root,
+.dark {
+  --background: 0 0% 5%;
+  --foreground: 145 100% 91%;
+  --card: 0 0% 7%;
+  --card-foreground: 145 100% 91%;
+  --popover: 0 0% 7%;
+  --popover-foreground: 145 100% 91%;
+  --primary: 152 100% 57%;
+  --primary-foreground: 0 0% 5%;
+  --secondary: 0 0% 12%;
+  --secondary-foreground: 145 100% 91%;
+  --muted: 0 0% 12%;
+  --muted-foreground: 150 18% 58%;
+  --accent: 0 0% 14%;
+  --accent-foreground: 145 100% 91%;
+  --border: 150 14% 22%;
+  --input: 0 0% 18%;
+  --ring: 152 100% 57%;
+  --radius: 0.5rem;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
