@@ -1,20 +1,37 @@
 "use client";
 
 import FadeIn from "./FadeIn";
-import Magnet from "./Magnet";
 import Navbar from "./Navbar";
 import ContactButton from "./ContactButton";
+import { SplineScene } from "@/components/ui/splite";
+import { Spotlight } from "@/components/ui/spotlight";
 
 export default function Hero() {
   return (
     <section
-      className="relative h-screen flex flex-col"
+      className="relative h-screen flex flex-col overflow-hidden"
       style={{ overflowX: "clip" }}
     >
-      <Navbar />
+      {/* Cursor-following glow, tinted to the brand gradient */}
+      <Spotlight
+        className="from-[#B600A8]/40 via-[#7621B0]/25 to-transparent"
+        size={420}
+      />
+
+      <div className="relative z-20">
+        <Navbar />
+      </div>
 
       <div className="flex-1 flex flex-col justify-between px-6 md:px-10 relative">
-        <div className="overflow-hidden w-full">
+        {/* Interactive 3D robot — fills the hero, sits behind the text */}
+        <div className="absolute inset-0 z-10">
+          <SplineScene
+            scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+            className="w-full h-full"
+          />
+        </div>
+
+        <div className="overflow-hidden w-full relative z-20 pointer-events-none">
           <FadeIn
             as="h1"
             delay={0.15}
@@ -25,11 +42,11 @@ export default function Hero() {
           </FadeIn>
         </div>
 
-        <div className="flex justify-between items-end pb-7 sm:pb-8 md:pb-10">
+        <div className="flex justify-between items-end pb-7 sm:pb-8 md:pb-10 relative z-20">
           <FadeIn
             delay={0.35}
             y={20}
-            className="max-w-[160px] sm:max-w-[220px] md:max-w-[260px]"
+            className="max-w-[160px] sm:max-w-[220px] md:max-w-[260px] pointer-events-none"
           >
             <p
               className="text-[#D7E2EA] font-light uppercase tracking-wide leading-snug"
@@ -48,18 +65,6 @@ export default function Hero() {
 
           <FadeIn delay={0.5} y={20}>
             <ContactButton />
-          </FadeIn>
-        </div>
-
-        <div className="absolute left-1/2 -translate-x-1/2 z-10 top-1/2 -translate-y-1/2 sm:top-auto sm:translate-y-0 sm:bottom-0 w-[280px] sm:w-[360px] md:w-[440px] lg:w-[520px]">
-          <FadeIn delay={0.6} y={30}>
-            <Magnet padding={150} strength={3}>
-              <img
-                src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Robot/3D/robot_3d.png"
-                alt="3D robot mascot"
-                className="w-full h-auto select-none pointer-events-none drop-shadow-2xl"
-              />
-            </Magnet>
           </FadeIn>
         </div>
       </div>
