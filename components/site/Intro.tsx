@@ -15,10 +15,10 @@ export default function Intro({ repoCount }: { repoCount: number }) {
   ];
 
   return (
-    <section className="relative pb-20 pt-14 sm:pt-24 lg:pt-28">
+    <section className="relative pb-20 pt-14 sm:pt-24 lg:flex lg:min-h-[100svh] lg:flex-col lg:justify-center lg:py-10">
       <DotField className="absolute -right-4 -top-2 h-[380px] w-[min(520px,95%)] sm:-right-8 sm:h-[460px] lg:h-[560px] lg:w-[min(900px,72%)]" />
 
-      <div className="relative">
+      <div className="relative w-full">
         <FadeIn y={12} delay={0} className="mb-8 lg:hidden">
           <Availability />
         </FadeIn>
@@ -33,14 +33,14 @@ export default function Intro({ repoCount }: { repoCount: number }) {
           as="h1"
           y={18}
           delay={0.12}
-          className="mt-5 text-[clamp(2.9rem,7.6vw,7.5rem)] font-semibold leading-[0.95] tracking-[-0.045em] text-ink"
+          className="mt-5 text-[clamp(2.5rem,min(5.6vw,10.5vh),5.75rem)] font-semibold leading-[0.95] lg:mt-[2.5vh] tracking-[-0.045em] text-ink"
         >
           Mark Jeferson
           <br />
           <span className="text-ink-3">Manalo</span>
         </FadeIn>
 
-        <FadeIn y={14} delay={0.22} className="mt-8 max-w-[600px] space-y-4 text-[16px] leading-relaxed text-ink-2 sm:text-[17px]">
+        <FadeIn y={14} delay={0.22} className="mt-8 max-w-[600px] space-y-4 lg:mt-[4vh] text-[16px] leading-relaxed text-ink-2 sm:text-[17px]">
           <p>
             I&apos;m a <span className="text-ink">full-stack developer</span>. I build
             practical, polished web applications — from the interface all the way
@@ -52,7 +52,7 @@ export default function Intro({ repoCount }: { repoCount: number }) {
           </p>
         </FadeIn>
 
-        <FadeIn y={10} delay={0.3} className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-[14px]">
+        <FadeIn y={10} delay={0.3} className="mt-8 flex flex-wrap items-center gap-x-5 lg:mt-[4vh] gap-y-2 text-[14px]">
           <a
             href="#work"
             className="inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2 text-canvas transition-opacity hover:opacity-85"
@@ -77,7 +77,7 @@ export default function Intro({ repoCount }: { repoCount: number }) {
         </FadeIn>
 
         <FadeIn y={10} delay={0.38}>
-          <dl className="mt-16 grid grid-cols-3 border-y border-line lg:grid-cols-4">
+          <dl className="mt-16 grid grid-cols-3 border-y border-line lg:mt-[6vh] lg:grid-cols-4">
             {facts.map((f, i) => (
               <div
                 key={f.label}
