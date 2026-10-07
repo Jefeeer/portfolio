@@ -47,7 +47,7 @@ export const projects: Project[] = [
     summary:
       "One shared record for an aging parent's medications, doctor visits, vitals and documents, so every sibling — next door or abroad — knows what happened today. English & Filipino, works offline.",
     tags: ["Mobile app", "Landing site", "Bilingual"],
-    url: "https://www.axelapp.online",
+    url: "https://home-ages-web.vercel.app",
     shot: "/projects/axel.jpg",
     featured: true,
   },

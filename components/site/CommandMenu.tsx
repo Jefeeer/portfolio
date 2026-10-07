@@ -211,7 +211,7 @@ export default function CommandMenu() {
                   aria-label="Search"
                   className="h-12 flex-1 bg-transparent text-[15px] text-ink outline-none placeholder:text-ink-3"
                 />
-                <kbd className="rounded border border-line px-1.5 py-0.5 font-mono text-[10px] text-ink-3">
+                <kbd className="rounded border border-line px-1.5 py-0.5 text-[10px] text-ink-3">
                   esc
                 </kbd>
               </div>
@@ -229,7 +229,7 @@ export default function CommandMenu() {
                   return (
                     <li key={item.id}>
                       {header && (
-                        <p className="px-3 pb-1.5 pt-3 font-mono text-[10px] uppercase tracking-[0.14em] text-ink-3">
+                        <p className="px-3 pb-1.5 pt-3 text-[10px] uppercase tracking-[0.14em] text-ink-3">
                           {item.group}
                         </p>
                       )}
@@ -246,7 +246,7 @@ export default function CommandMenu() {
                         <span className="text-ink-3">{item.icon}</span>
                         <span className="flex-1 truncate">{item.label}</span>
                         {item.hint && (
-                          <span className="truncate font-mono text-[11px] text-ink-3">
+                          <span className="truncate text-[11px] text-ink-3">
                             {item.hint}
                           </span>
                         )}
@@ -259,7 +259,7 @@ export default function CommandMenu() {
                 })}
               </ul>
 
-              <div className="flex items-center gap-4 border-t border-line px-4 py-2.5 font-mono text-[10px] text-ink-3">
+              <div className="flex items-center gap-4 border-t border-line px-4 py-2.5 text-[10px] text-ink-3">
                 <span>↑↓ navigate</span>
                 <span>↵ select</span>
                 <span className="ml-auto">{site.short}</span>

@@ -64,7 +64,7 @@ function NavItem({
 
         <div className="flex items-center gap-2">
           {item.shortcut && (
-            <kbd className="hidden group-hover:inline-flex items-center justify-center h-5 px-1.5 text-[10px] font-mono text-muted-foreground/60 bg-muted border border-border/50 rounded">
+            <kbd className="hidden group-hover:inline-flex items-center justify-center h-5 px-1.5 text-[10px] text-muted-foreground/60 bg-muted border border-border/50 rounded">
               {item.shortcut}
             </kbd>
           )}

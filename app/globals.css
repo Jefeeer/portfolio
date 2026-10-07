@@ -86,6 +86,10 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+kbd {
+  font-family: inherit;
+}
+
 ::selection {
   background: rgb(var(--pf-ink));
   color: rgb(var(--pf-canvas));

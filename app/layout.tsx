@@ -1,10 +1,39 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
+const SITE_URL = "https://mjsmanalo.vercel.app";
+const TITLE = "Mark Jeferson Manalo — Full-Stack Developer";
+const DESCRIPTION =
+  "Full-stack developer building practical, polished web applications — from interface to database. Selected work, live projects, and what I'm building on GitHub.";
+
+// Open Graph / Twitter tags drive the link preview in Messenger, Facebook, etc.
 export const metadata: Metadata = {
-  title: "Mark Jeferson Manalo — Full-Stack Developer",
-  description:
-    "Full-stack developer building practical, polished web applications — from interface to database. Selected work, live projects, and what I'm building on GitHub.",
+  metadataBase: new URL(SITE_URL),
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    url: SITE_URL,
+    siteName: "Mark Jeferson Manalo",
+    title: TITLE,
+    description: DESCRIPTION,
+    locale: "en_US",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Mark Jeferson Manalo — Full-stack developer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+    images: ["/og.png"],
+  },
 };
 
 export const viewport: Viewport = {
@@ -33,7 +62,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&display=swap"
           rel="stylesheet"
         />
       </head>

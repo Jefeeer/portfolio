@@ -37,8 +37,8 @@ export function Monogram({ size = 36 }: { size?: number }) {
   return (
     <span
       aria-hidden
-      className="grid shrink-0 place-items-center rounded-[10px] bg-ink font-serif italic text-canvas"
-      style={{ width: size, height: size, fontSize: size * 0.5 }}
+      className="grid shrink-0 place-items-center rounded-[10px] bg-ink font-semibold tracking-tight text-canvas"
+      style={{ width: size, height: size, fontSize: size * 0.4 }}
     >
       mj
     </span>
@@ -83,7 +83,7 @@ export default function Sidebar() {
       >
         <Search size={14} strokeWidth={1.75} />
         <span className="flex-1">Jump to…</span>
-        <kbd className="rounded border border-line px-1.5 font-mono text-[10px] text-ink-3">
+        <kbd className="rounded border border-line px-1.5 text-[10px] text-ink-3">
           {mod} K
         </kbd>
       </button>
@@ -106,7 +106,7 @@ export default function Sidebar() {
                       isActive ? "opacity-100" : "opacity-0"
                     }`}
                   />
-                  <span className="font-mono text-[11px] text-ink-3">{n.num}</span>
+                  <span className="text-[11px] text-ink-3">{n.num}</span>
                   {n.label}
                 </a>
               </li>

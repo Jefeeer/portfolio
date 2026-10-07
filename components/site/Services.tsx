@@ -6,10 +6,10 @@ export function Services() {
   return (
     <section id="services" className="scroll-mt-20 pb-24 lg:scroll-mt-10">
       <SectionHeader num="03" title="What I do" />
-      <div className="grid gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-2">
+      <div className="grid gap-px overflow-hidden rounded-xl border border-line bg-line sm:grid-cols-2 xl:grid-cols-4">
         {services.map((s, i) => (
           <FadeIn key={s.name} y={12} delay={i * 0.05} className="bg-canvas p-6">
-            <span className="font-mono text-[11px] text-ink-3">
+            <span className="text-[11px] text-ink-3">
               {String(i + 1).padStart(2, "0")}
             </span>
             <h3 className="mt-6 text-[16px] font-medium tracking-tight text-ink">
@@ -33,7 +33,7 @@ export function Stack() {
             key={g.group}
             y={12}
             delay={i * 0.06}
-            className="grid gap-3 sm:grid-cols-[9rem_1fr] sm:gap-6"
+            className="grid gap-3 sm:grid-cols-[9rem_1fr] sm:gap-6 lg:grid-cols-[14rem_1fr]"
           >
             <dt className="pt-1.5 text-[13px] text-ink-3">{g.group}</dt>
             <dd className="flex flex-wrap gap-2">

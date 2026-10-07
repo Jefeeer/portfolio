@@ -25,7 +25,7 @@ export default async function Home() {
       <Sidebar />
       <div className="lg:pl-[264px]">
         <MobileBar />
-        <main id="top" className="mx-auto max-w-[780px] px-4 sm:px-8">
+        <main id="top" className="mx-auto max-w-[1320px] px-4 sm:px-8 lg:px-12 xl:px-16">
           <Intro repoCount={repos.length} />
           <Work />
           <GitHubFeed repos={repos} />

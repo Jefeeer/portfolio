@@ -17,7 +17,7 @@ function BrowserFrame({ project, big }: { project: Project; big?: boolean }) {
         <span className="h-[7px] w-[7px] rounded-full bg-ink/15" />
         <span className="h-[7px] w-[7px] rounded-full bg-ink/15" />
         <span className="h-[7px] w-[7px] rounded-full bg-ink/15" />
-        <span className="mx-auto truncate rounded px-2 font-mono text-[10px] text-ink-3">
+        <span className="mx-auto truncate rounded px-2 text-[10px] text-ink-3">
           {host(project.url)}
         </span>
         <span className="w-[29px]" />
@@ -63,7 +63,7 @@ function ProjectLinks({ project }: { project: Project }) {
 
 function FeaturedCard({ project, big }: { project: Project; big?: boolean }) {
   return (
-    <article>
+    <article className={big ? "xl:grid xl:grid-cols-[1.75fr_1fr] xl:items-end xl:gap-12" : ""}>
       <a
         href={project.url}
         target="_blank"
@@ -73,21 +73,21 @@ function FeaturedCard({ project, big }: { project: Project; big?: boolean }) {
       >
         <BrowserFrame project={project} big={big} />
       </a>
-      <div className={`mt-5 ${big ? "sm:grid sm:grid-cols-[1fr_1.4fr] sm:gap-8" : ""}`}>
+      <div className={`mt-5 ${big ? "sm:grid sm:grid-cols-[1fr_1.4fr] sm:gap-8 xl:mt-0 xl:block" : ""}`}>
         <div>
           <div className="flex items-baseline justify-between gap-3">
-            <h3 className="text-[17px] font-medium tracking-tight text-ink">
+            <h3 className={`font-medium tracking-tight text-ink ${big ? "text-[17px] xl:text-[24px]" : "text-[17px]"}`}>
               {project.name}
             </h3>
-            <span className="font-mono text-[11px] text-ink-3">{project.year}</span>
+            <span className="text-[11px] text-ink-3">{project.year}</span>
           </div>
           <p className="mt-0.5 text-[13px] text-ink-3">{project.kind}</p>
         </div>
         <div>
-          <p className={`text-[14px] leading-relaxed text-ink-2 ${big ? "mt-3 sm:mt-0" : "mt-3"}`}>
+          <p className={`text-[14px] leading-relaxed text-ink-2 ${big ? "mt-3 sm:mt-0 xl:mt-4 xl:text-[15px]" : "mt-3"}`}>
             {project.summary}
           </p>
-          <ul className="mt-3 flex flex-wrap gap-x-3 gap-y-1 font-mono text-[11px] text-ink-3">
+          <ul className="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-[11px] text-ink-3">
             {project.tags.map((t) => (
               <li key={t}>{t}</li>
             ))}
@@ -133,7 +133,7 @@ function ProjectIndex({ items }: { items: Project[] }) {
               onFocus={() => setHovered(null)}
               className="group grid grid-cols-[2rem_1fr_auto] items-center gap-3 py-4 sm:grid-cols-[2.5rem_1.1fr_1fr_auto]"
             >
-              <span className="font-mono text-[11px] text-ink-3">
+              <span className="text-[11px] text-ink-3">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <span className="min-w-0">
@@ -148,7 +148,7 @@ function ProjectIndex({ items }: { items: Project[] }) {
                 {p.kind}
               </span>
               <span className="flex items-center gap-3">
-                <span className="hidden font-mono text-[11px] text-ink-3 sm:inline">
+                <span className="hidden text-[11px] text-ink-3 sm:inline">
                   {p.year}
                 </span>
                 <ArrowUpRight
@@ -180,7 +180,7 @@ function ProjectIndex({ items }: { items: Project[] }) {
                 alt=""
                 className="aspect-[16/10] w-full object-cover object-top"
               />
-              <p className="border-t border-line px-3 py-2 font-mono text-[10px] text-ink-3">
+              <p className="border-t border-line px-3 py-2 text-[10px] text-ink-3">
                 {host(hovered.url)}
               </p>
             </div>
@@ -203,9 +203,9 @@ export default function Work() {
         link={{ href: site.github, label: "All code" }}
       />
 
-      <div className="grid gap-x-6 gap-y-14 sm:grid-cols-2">
+      <div className="grid gap-x-6 gap-y-14 sm:grid-cols-2 xl:grid-cols-3 xl:gap-x-8">
         {featured.map((p, i) => (
-          <FadeIn key={p.slug} y={18} delay={i === 0 ? 0 : (i % 2) * 0.08} className={i === 0 ? "sm:col-span-2" : ""}>
+          <FadeIn key={p.slug} y={18} delay={i === 0 ? 0 : (i % 2) * 0.08} className={i === 0 ? "sm:col-span-2 xl:col-span-3" : ""}>
             <FeaturedCard project={p} big={i === 0} />
           </FadeIn>
         ))}
@@ -214,7 +214,7 @@ export default function Work() {
       <FadeIn y={14} className="mt-20">
         <div className="mb-4 flex items-baseline justify-between">
           <h3 className="text-[15px] font-medium text-ink">More shipped work</h3>
-          <span className="font-mono text-[11px] text-ink-3">{rest.length} live</span>
+          <span className="text-[11px] text-ink-3">{rest.length} live</span>
         </div>
         <ProjectIndex items={rest} />
       </FadeIn>

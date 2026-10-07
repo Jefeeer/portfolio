@@ -54,13 +54,13 @@ export default function GitHubFeed({ repos }: { repos: Repo[] }) {
             {repos.map((r) => (
               <li
                 key={r.name}
-                className="grid grid-cols-[1fr_auto] items-center gap-x-4 gap-y-1 border-t border-line py-3.5 sm:grid-cols-[11rem_1fr_auto]"
+                className="grid grid-cols-[1fr_auto] items-center gap-x-4 gap-y-1 border-t border-line py-3.5 sm:grid-cols-[11rem_1fr_auto] lg:grid-cols-[16rem_1fr_auto]"
               >
                 <a
                   href={r.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="truncate font-mono text-[13px] text-ink transition-opacity hover:opacity-70"
+                  className="truncate text-[13px] text-ink transition-opacity hover:opacity-70"
                 >
                   {r.name}
                   {r.fork && <span className="ml-2 text-ink-3">fork</span>}
@@ -70,7 +70,7 @@ export default function GitHubFeed({ repos }: { repos: Repo[] }) {
                 </span>
                 <span className="col-start-2 row-span-2 row-start-1 flex items-center gap-4 justify-self-end sm:col-start-3 sm:row-span-1">
                   {r.language && (
-                    <span className="hidden items-center gap-1.5 font-mono text-[11px] text-ink-3 md:inline-flex">
+                    <span className="hidden items-center gap-1.5 text-[11px] text-ink-3 md:inline-flex">
                       <span
                         className="h-2 w-2 rounded-full"
                         style={{ background: LANG_DOT[r.language] ?? "currentColor" }}
@@ -78,7 +78,7 @@ export default function GitHubFeed({ repos }: { repos: Repo[] }) {
                       {r.language}
                     </span>
                   )}
-                  <span className="w-[4.5rem] text-right font-mono text-[11px] text-ink-3">
+                  <span className="w-[4.5rem] text-right text-[11px] text-ink-3">
                     {ago(r.pushedAt)}
                   </span>
                   {r.homepage ? (

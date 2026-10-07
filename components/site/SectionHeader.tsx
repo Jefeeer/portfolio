@@ -11,7 +11,7 @@ export default function SectionHeader({
 }) {
   return (
     <div className="mb-10 flex items-baseline justify-between gap-4 border-t border-line pt-4">
-      <h2 className="font-mono text-[11px] uppercase tracking-[0.16em] text-ink-3">
+      <h2 className="text-[11px] uppercase tracking-[0.16em] text-ink-3">
         <span className="text-ink">{num}</span>
         <span className="mx-2">—</span>
         {title}
@@ -21,7 +21,7 @@ export default function SectionHeader({
           href={link.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="group inline-flex items-center gap-1 font-mono text-[11px] uppercase tracking-[0.12em] text-ink-3 transition-colors hover:text-ink"
+          className="group inline-flex items-center gap-1 text-[11px] uppercase tracking-[0.12em] text-ink-3 transition-colors hover:text-ink"
         >
           {link.label}
           <ArrowUpRight
