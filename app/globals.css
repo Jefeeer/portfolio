@@ -78,6 +78,12 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Never let stray overflow make the page pan sideways on phones */
+html,
+body {
+  overflow-x: clip;
+}
+
 body {
   font-family: "Geist", ui-sans-serif, system-ui, sans-serif;
   background: rgb(var(--pf-canvas));

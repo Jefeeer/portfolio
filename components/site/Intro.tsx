@@ -33,7 +33,7 @@ export default function Intro({ repoCount }: { repoCount: number }) {
           as="h1"
           y={18}
           delay={0.12}
-          className="mt-5 text-[clamp(2.5rem,min(5.6vw,10.5vh),5.75rem)] min-[2200px]:text-[clamp(2.5rem,min(5vw,10.5vh),7rem)] font-semibold leading-[0.95] lg:mt-[2.5vh] tracking-[-0.045em] text-ink"
+          className="mt-5 text-[clamp(2.15rem,min(5.6vw,10.5vh),5.75rem)] min-[360px]:text-[clamp(2.5rem,min(5.6vw,10.5vh),5.75rem)] min-[2200px]:text-[clamp(2.5rem,min(5vw,10.5vh),7rem)] font-semibold leading-[0.95] lg:mt-[2.5vh] tracking-[-0.045em] text-ink"
         >
           Mark Jeferson
           <br />
@@ -77,22 +77,22 @@ export default function Intro({ repoCount }: { repoCount: number }) {
         </FadeIn>
 
         <FadeIn y={10} delay={0.38}>
-          <dl className="mt-16 grid grid-cols-3 border-y border-line lg:mt-[6vh] lg:grid-cols-4">
+          <dl className="mt-16 grid grid-cols-2 border-t border-line sm:grid-cols-3 lg:mt-[6vh] lg:grid-cols-4">
             {facts.map((f, i) => (
               <div
                 key={f.label}
-                className={`py-4 ${i > 0 ? "border-l border-line pl-4 sm:pl-6" : ""} ${f.value === "clock" ? "hidden lg:block" : ""}`}
+                className={`min-w-0 border-b border-line py-4 ${i > 0 ? "border-l pl-4 sm:pl-6" : ""} ${i === 2 ? "max-sm:border-l-0 max-sm:pl-0" : ""} ${f.value === "clock" ? "sm:hidden lg:block" : ""}`}
               >
                 <dt className="text-[10px] uppercase tracking-[0.14em] text-ink-3">
                   {f.label}
                 </dt>
-                <dd className="mt-1.5 text-[15px] text-ink sm:text-[17px]">
+                <dd className="mt-1.5 break-words text-[15px] text-ink sm:text-[17px]">
                   {f.value === "clock" ? <LocalTime /> : f.value}
                 </dd>
               </div>
             ))}
           </dl>
-          <p className="mt-3 text-right text-[11px] text-ink-3 lg:hidden">
+          <p className="mt-3 hidden text-right text-[11px] text-ink-3 sm:block lg:hidden">
             <LocalTime /> · Manila
           </p>
         </FadeIn>
