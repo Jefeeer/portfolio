@@ -33,7 +33,7 @@ export default function Intro({ repoCount }: { repoCount: number }) {
           as="h1"
           y={18}
           delay={0.12}
-          className="mt-5 text-[clamp(2.5rem,min(5.6vw,10.5vh),5.75rem)] font-semibold leading-[0.95] lg:mt-[2.5vh] tracking-[-0.045em] text-ink"
+          className="mt-5 text-[clamp(2.5rem,min(5.6vw,10.5vh),5.75rem)] min-[2200px]:text-[clamp(2.5rem,min(5vw,10.5vh),7rem)] font-semibold leading-[0.95] lg:mt-[2.5vh] tracking-[-0.045em] text-ink"
         >
           Mark Jeferson
           <br />
@@ -68,7 +68,7 @@ export default function Intro({ repoCount }: { repoCount: number }) {
               href={l.href}
               target={l.href.startsWith("http") ? "_blank" : undefined}
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-0.5 text-ink-2 underline decoration-line decoration-1 underline-offset-[5px] transition-colors hover:text-ink hover:decoration-ink"
+              className="tap group inline-flex items-center gap-0.5 text-ink-2 underline decoration-line decoration-1 underline-offset-[5px] transition-colors hover:text-ink hover:decoration-ink"
             >
               {l.label}
               <ArrowUpRight size={13} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />

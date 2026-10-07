@@ -21,7 +21,7 @@ export default function SectionHeader({
           href={link.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="group inline-flex items-center gap-1 text-[11px] uppercase tracking-[0.12em] text-ink-3 transition-colors hover:text-ink"
+          className="tap group inline-flex items-center gap-1 text-[11px] uppercase tracking-[0.12em] text-ink-3 transition-colors hover:text-ink"
         >
           {link.label}
           <ArrowUpRight

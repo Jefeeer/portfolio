@@ -11,7 +11,7 @@ export default function Footer() {
         <p className="hidden sm:block">Built with Next.js &amp; Tailwind CSS</p>
         <a
           href="#top"
-          className="inline-flex items-center gap-1 transition-colors hover:text-ink"
+          className="tap inline-flex items-center gap-1 transition-colors hover:text-ink"
         >
           Back to top <ArrowUp size={12} />
         </a>

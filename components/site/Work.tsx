@@ -42,7 +42,7 @@ function ProjectLinks({ project }: { project: Project }) {
         href={project.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="group/l inline-flex items-center gap-1 text-ink underline decoration-line underline-offset-[5px] transition-colors hover:decoration-ink"
+        className="tap group/l inline-flex items-center gap-1 text-ink underline decoration-line underline-offset-[5px] transition-colors hover:decoration-ink"
       >
         Visit live
         <ArrowUpRight size={13} className="transition-transform group-hover/l:-translate-y-0.5 group-hover/l:translate-x-0.5" />
@@ -52,7 +52,7 @@ function ProjectLinks({ project }: { project: Project }) {
           href={`https://github.com/${GITHUB_USER}/${project.repo}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1 text-ink-3 transition-colors hover:text-ink"
+          className="tap inline-flex items-center gap-1 text-ink-3 transition-colors hover:text-ink"
         >
           <Github size={13} strokeWidth={1.75} /> Source
         </a>

@@ -60,7 +60,7 @@ export default function GitHubFeed({ repos }: { repos: Repo[] }) {
                   href={r.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="truncate text-[13px] text-ink transition-opacity hover:opacity-70"
+                  className="truncate py-1 text-[13px] text-ink transition-opacity hover:opacity-70"
                 >
                   {r.name}
                   {r.fork && <span className="ml-2 text-ink-3">fork</span>}
@@ -86,7 +86,7 @@ export default function GitHubFeed({ repos }: { repos: Repo[] }) {
                       href={r.homepage}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex w-12 items-center justify-end gap-0.5 text-[12px] text-ink transition-opacity hover:opacity-70"
+                      className="tap inline-flex w-12 items-center justify-end gap-0.5 text-[12px] text-ink transition-opacity hover:opacity-70"
                     >
                       live <ArrowUpRight size={12} />
                     </a>
