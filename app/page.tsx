@@ -1,19 +1,40 @@
-import Hero from "@/components/Hero";
-import Marquee from "@/components/Marquee";
-import About from "@/components/About";
-import Services from "@/components/Services";
-import Projects from "@/components/Projects";
-import Contact from "@/components/Contact";
+import { getRepos } from "@/lib/github";
+import { projects } from "@/lib/projects";
+import Sidebar from "@/components/site/Sidebar";
+import MobileBar from "@/components/site/MobileBar";
+import CommandMenu from "@/components/site/CommandMenu";
+import Intro from "@/components/site/Intro";
+import Work from "@/components/site/Work";
+import GitHubFeed from "@/components/site/GitHubFeed";
+import { Services, Stack } from "@/components/site/Services";
+import Contact from "@/components/site/Contact";
+import Footer from "@/components/site/Footer";
 
-export default function Home() {
+export const revalidate = 3600;
+
+export default async function Home() {
+  const repos = (await getRepos()).map((r) => ({
+    ...r,
+    // Prefer the live URL I curate (some repo homepages are stale).
+    homepage: projects.find((p) => p.repo === r.name)?.url ?? r.homepage,
+  }));
+
   return (
-    <main className="bg-[#0C0C0C]" style={{ overflowX: "clip" }}>
-      <Hero />
-      <Marquee />
-      <About />
-      <Services />
-      <Projects />
-      <Contact />
-    </main>
+    <>
+      <CommandMenu />
+      <Sidebar />
+      <div className="lg:pl-[264px]">
+        <MobileBar />
+        <main id="top" className="mx-auto max-w-[780px] px-4 sm:px-8">
+          <Intro repoCount={repos.length} />
+          <Work />
+          <GitHubFeed repos={repos} />
+          <Services />
+          <Stack />
+          <Contact />
+          <Footer />
+        </main>
+      </div>
+    </>
   );
 }

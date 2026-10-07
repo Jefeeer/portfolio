@@ -38,10 +38,33 @@
   --muted: 0 0% 14.9%;
   --muted-foreground: 0 0% 63.9%;
   --accent: 0 0% 14.9%;
-  --accent-foreground: 0 0% 98%;
+  --accent-foreground: 0 0% 9%;
   --border: 0 0% 14.9%;
   --input: 0 0% 14.9%;
   --ring: 0 0% 83.1%;
+}
+
+/* Portfolio tokens — warm paper / ink, one green signal. */
+:root {
+  --pf-canvas: 250 250 248;
+  --pf-surface: 255 255 255;
+  --pf-ink: 17 17 16;
+  --pf-ink-2: 87 87 83;
+  --pf-ink-3: 145 145 140;
+  --pf-line: 228 228 224;
+  --pf-signal: 22 163 74;
+  color-scheme: light;
+}
+
+html[data-theme="dark"] {
+  --pf-canvas: 12 12 11;
+  --pf-surface: 21 21 20;
+  --pf-ink: 237 237 233;
+  --pf-ink-2: 168 168 162;
+  --pf-ink-3: 110 110 105;
+  --pf-line: 38 38 36;
+  --pf-signal: 74 222 128;
+  color-scheme: dark;
 }
 
 * {
@@ -50,15 +73,38 @@
   padding: 0;
 }
 
-html,
-body {
-  background: #0c0c0c;
+html {
+  background: rgb(var(--pf-canvas));
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: "Kanit", sans-serif;
+  font-family: "Geist", ui-sans-serif, system-ui, sans-serif;
+  background: rgb(var(--pf-canvas));
+  color: rgb(var(--pf-ink));
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
+::selection {
+  background: rgb(var(--pf-ink));
+  color: rgb(var(--pf-canvas));
+}
+
+/* Theme switch: circular reveal via View Transitions (driven in lib/theme.ts) */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Kept for the admin login heading */
 .hero-heading {
   background: linear-gradient(180deg, #146b3a 0%, #7cffb2 100%);
   -webkit-background-clip: text;
@@ -67,18 +113,3 @@ body {
   color: transparent;
 }
 
-/* Spinner for Suspense fallbacks (Spline scene loading) */
-.loader {
-  width: 40px;
-  height: 40px;
-  border: 3px solid rgba(34, 255, 136, 0.2);
-  border-top-color: #22ff88;
-  border-radius: 50%;
-  animation: loader-spin 0.8s linear infinite;
-}
-
-@keyframes loader-spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
